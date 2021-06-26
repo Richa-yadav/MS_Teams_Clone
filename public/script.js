@@ -29,13 +29,11 @@ navigator.mediaDevices.getUserMedia({
             addVideoStream(video, userVideoStream)
         })
     })
-
-    socket.on('user-connected', (userId) =>{
-        socket.on('join-room', (roomId, userId) => {
-        socket.join(roomId);
-        socket.to(roomId).broadcast.emit('user-connected', userId);
-    })
-        connectToNewUser(userId, stream);
+    socket.on("user-connected", (userId)=> {
+        console.log("A new user just joined!");
+        setTimeout(function(){
+            connectToNewUser(userId,stream);
+        },5000)
     })
 })
 
@@ -46,17 +44,6 @@ peer.on('open', id => {
 })
 
 
-// socket.on('user-connected', (userId) =>{
-//     // socket.on('join-room', (roomId) => {
-//     //     socket.join(roomId);
-//     //     socket.to(roomId).broadcast.emit('user-connected');
-//     // })
-//     socket.on('join-room', (roomId, userId) => {
-//         socket.join(roomId);
-//         socket.to(roomId).broadcast.emit('user-connected', userId);
-//     })
-//     connectToNewUser(userId, stream);
-// })
 
 const connectToNewUser = (userId, stream) => {
     const call = peer.call(userId, stream)
