@@ -65,7 +65,7 @@ video{
 }
 
 .main_controls_button:hover {
-    background-color: rosybrown;
+    background-color: rgb(44, 78, 46);
     border-radius: 5px;
 }
 
