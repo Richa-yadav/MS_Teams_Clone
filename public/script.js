@@ -190,7 +190,18 @@ const stopScreenShare = () =>   {
     document.querySelector('.main_share_button').innerHTML = html;
 }
 
-//hand raise
+//leave meeting
+document.querySelector('.main_leave_button').addEventListener('click', () => {
+    const leaveRoom = confirm('Are you sure you want to leave the video conference?');
+    if (leaveRoom) {
+    //   window.location = 'https://www.google.com';
+        window.location = 'leave_meeting/home.html';
+        // window.location = close(); //some landing page needed.
+    } else {
+    }
+});
+
+// hand raise
 // const raiseHand = () => {
 //     const enabled = myVideoStream.getVideoTracks()[0].enabled;
 //     if (enabled) {
@@ -216,3 +227,8 @@ const stopScreenShare = () =>   {
 //     `
 //     document.querySelector('.main_hand_button').innerHTML = html;
 // }
+
+// document.getElementById('#chat_message').emojioneArea({
+//     pickerPosition: "right"
+// });
+
